@@ -65,7 +65,7 @@ transform:scale(1.03);
 .gallery{column-count:4;}
 }
 
-/* Viewer (FULL SCREEN IMAGE) */
+/* Viewer */
 #viewer{
 display:none;
 position:fixed;
@@ -101,10 +101,12 @@ border-radius:10px;
 <!-- GALLERY -->
 <div class="gallery" id="gallery">
 
-<img src="IMG_20260609_185310120.jpg"
-onclick="openImg(this.acr)">
+<img src="img1.jpg" onclick="openImg(this.src)">
+<img src="img2.jpg" onclick="openImg(this.src)">
+<img src="img3.jpg" onclick="openImg(this.src)">
 <img src="Snapchat-1800708327.jpg" onclick="openImg(this.src)">
 <img src="IMG_20260610_192912395_HDR.jpg" onclick="openImg(this.src)">
+<img src="IMG_20260609_185310120.jpg" onclick="openImg(this.src)">
 
 </div>
 
@@ -113,7 +115,6 @@ onclick="openImg(this.acr)">
   <img id="viewerImg">
 </div>
 
-<!-- SCRIPT -->
 <script>
 
 // OPEN IMAGE FULL SCREEN
@@ -123,9 +124,6 @@ function openImg(src){
 
   viewer.style.display = "flex";
   viewerImg.src = src;
-}
-  document.getElementById("viewer").style.display = "flex";
-  document.getElementById("viewerImg").src = src;
 }
 
 // SEARCH IMAGES
@@ -144,8 +142,6 @@ document.getElementById("search").addEventListener("input", function(){
 });
 
 </script>
-<div id="viewer" onclick="this.style.display='none'">
-  <img id="viewerImg">
-</div>
+
 </body>
 </html>
