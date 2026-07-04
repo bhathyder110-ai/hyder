@@ -112,33 +112,4 @@ border-radius:10px;
 
 <!-- VIEWER -->
 <div id="viewer" onclick="this.style.display='none'">
-  <img id="viewerImg">
-</div>
-
-<script>
-
-// Open image full screen
-function openImg(src){
-  document.getElementById("viewer").style.display="flex";
-  document.getElementById("viewerImg").src=src;
-}
-
-// Search filter
-document.getElementById("search").addEventListener("input", function(){
-  let value = this.value.toLowerCase();
-  let images = document.querySelectorAll(".gallery img");
-
-  images.forEach(img=>{
-    let src = img.src.toLowerCase();
-    if(src.includes(value)){
-      img.style.display="block";
-    }else{
-      img.style.display="none";
-    }
-  });
-});
-
-</script>
-
-</body>
-</html>
+  <
