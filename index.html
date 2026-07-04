@@ -118,6 +118,12 @@ onclick="openImg(this.acr)">
 
 // OPEN IMAGE FULL SCREEN
 function openImg(src){
+  const viewer = document.getElementById("viewer");
+  const viewerImg = document.getElementById("viewerImg");
+
+  viewer.style.display = "flex";
+  viewerImg.src = src;
+}
   document.getElementById("viewer").style.display = "flex";
   document.getElementById("viewerImg").src = src;
 }
