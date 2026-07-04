@@ -65,7 +65,7 @@ transform:scale(1.03);
 .gallery{column-count:4;}
 }
 
-/* Viewer */
+/* Viewer (FULL SCREEN IMAGE) */
 #viewer{
 display:none;
 position:fixed;
@@ -76,6 +76,7 @@ height:100%;
 background:rgba(0,0,0,0.95);
 justify-content:center;
 align-items:center;
+z-index:999;
 }
 
 #viewer img{
@@ -104,12 +105,40 @@ border-radius:10px;
 <img src="img2.jpg" onclick="openImg(this.src)">
 <img src="img3.jpg" onclick="openImg(this.src)">
 <img src="Snapchat-1800708327.jpg" onclick="openImg(this.src)">
-
-<!-- NEW IMAGE ADDED -->
 <img src="IMG_20260610_192912395_HDR.jpg" onclick="openImg(this.src)">
 
 </div>
 
 <!-- VIEWER -->
 <div id="viewer" onclick="this.style.display='none'">
-  <
+  <img id="viewerImg">
+</div>
+
+<!-- SCRIPT -->
+<script>
+
+// OPEN IMAGE FULL SCREEN
+function openImg(src){
+  document.getElementById("viewer").style.display = "flex";
+  document.getElementById("viewerImg").src = src;
+}
+
+// SEARCH IMAGES
+document.getElementById("search").addEventListener("input", function(){
+  let value = this.value.toLowerCase();
+  let images = document.querySelectorAll(".gallery img");
+
+  images.forEach(img=>{
+    let src = img.src.toLowerCase();
+    if(src.includes(value)){
+      img.style.display = "block";
+    }else{
+      img.style.display = "none";
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
