@@ -96,83 +96,30 @@ border-radius:10px;
 
 </head>
 
-<img src="IMG_20260529_172035022_HDR_PORTRAIT.jpg" width="500">
+<body>
 
-<header>
+<style="text-align:center; font-family: Arial; background:#f5f5f5;">
 
-<h1>HYDER</h1>
+  <!-- Profile Image -->
+  <img src="IMG_20260529_172035022_HDR_PORTRAIT.jpg" width="200" style="border-radius:50%; margin-top:20px;">
 
-<p>Capture • Create • Inspire</p>
+  <!-- Website Name -->
+  <h1>My Website</h1>
 
-<input type="text" id="search" placeholder="Search Photos">
+  <!-- Small Text -->
+  <p>Welcome to my personal site 🚀</p>
 
-</header>
+  <!-- Search Bar -->
+  <input type="text" placeholder="Search..." style="padding:10px; width:200px; border-radius:10px; border:1px solid #ccc;">
 
-<div class="gallery">
+  <br><br>
 
-<div class="card">
-<img src="https://picsum.photos/id/1015/600/900">
-</div>
+  <!-- Random Images Section -->
+  <img src="img1.jpg" width="150" style="margin:10px;">
+  <img src="img2.jpg" width="150" style="margin:10px;">
+  <img src="img3.jpg" width="150" style="margin:10px;">
 
-<div class="card">
-<img src="https://picsum.photos/id/1016/600/800">
-</div>
 
-<div class="card">
-<img src="https://picsum.photos/id/1025/600/700">
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/id/1035/600/900">
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/id/1043/600/800">
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/id/1050/600/900">
-</div>
-
-</div>
-
-<div id="viewer">
-<img id="big">
-</div>
-
-<script>
-
-const cards=document.querySelectorAll(".card img");
-const viewer=document.getElementById("viewer");
-const big=document.getElementById("big");
-
-cards.forEach(img=>{
-img.onclick=()=>{
-viewer.style.display="flex";
-big.src=img.src;
-}
-});
-
-viewer.onclick=()=>{
-viewer.style.display="none";
-}
-
-document.getElementById("search").addEventListener("keyup",function(){
-
-let value=this.value.toLowerCase();
-
-cards.forEach(img=>{
-
-if(img.src.toLowerCase().includes(value))
-img.parentElement.style.display="block";
-else
-img.parentElement.style.display="none";
-
-});
-
-});
-
-</script>
 
 </body>
 </html>
