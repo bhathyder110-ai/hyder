@@ -6,120 +6,86 @@
 <title>HYDER</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
+margin:0;
+font-family:Arial;
 background:#111;
 color:white;
-}
-
-header{
-background:#000;
-padding:20px;
 text-align:center;
-position:sticky;
-top:0;
 }
 
+/* Profile Image */
+.profile{
+margin-top:30px;
+width:180px;
+border-radius:50%;
+}
+
+/* Title */
 h1{
-font-size:40px;
-letter-spacing:5px;
+margin-top:15px;
 }
 
-p{
-color:#aaa;
-margin-top:5px;
-}
-
+/* Search */
 input{
-margin-top:20px;
-width:90%;
-max-width:500px;
-padding:12px;
+margin-top:15px;
+padding:10px;
+width:220px;
+border-radius:20px;
 border:none;
-border-radius:25px;
-font-size:16px;
 outline:none;
 }
 
+/* Gallery */
 .gallery{
 column-count:2;
-column-gap:15px;
+column-gap:10px;
 padding:15px;
 }
 
-.card{
-margin-bottom:15px;
-break-inside:avoid;
-cursor:pointer;
-}
-
-.card img{
+.gallery img{
 width:100%;
-border-radius:15px;
-transition:.3s;
+margin-bottom:10px;
+border-radius:10px;
+transition:0.3s;
 }
 
-.card img:hover{
+.gallery img:hover{
 transform:scale(1.03);
 }
 
 @media(min-width:800px){
-.gallery{
-column-count:4;
-}
+.gallery{column-count:4;}
 }
 
-#viewer{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.95);
-justify-content:center;
-align-items:center;
-}
-
-#viewer img{
-max-width:95%;
-max-height:95%;
-border-radius:10px;
-}
 </style>
 
 </head>
 
 <body>
 
-<style="text-align:center; font-family: Arial; background:#f5f5f5;">
+<!-- Profile Image -->
+<img class="profile" src="IMG_20260529_172035022_HDR_PORTRAIT.jpg">
 
-  <!-- Profile Image -->
-  <img src="IMG_20260529_172035022_HDR_PORTRAIT.jpg" width="200" style="border-radius:50%; margin-top:20px;">
+<!-- Name -->
+<h1>HYDER</h1>
 
-  <!-- Website Name -->
-  <h1>My Website</h1>
+<!-- Text -->
+<p>Welcome to my personal website 🚀</p>
 
-  <!-- Small Text -->
-  <p>Welcome to my personal site 🚀</p>
+<!-- Search -->
+<input type="text" placeholder="Search...">
 
-  <!-- Search Bar -->
-  <input type="text" placeholder="Search..." style="padding:10px; width:200px; border-radius:10px; border:1px solid #ccc;">
+<br><br>
 
-  <br><br>
+<!-- Gallery -->
+<div class="gallery">
 
-  <!-- Random Images Section -->
-  <img src="img1.jpg" width="150" style="margin:10px;">
-  <img src="img2.jpg" width="150" style="margin:10px;">
-  <img src="img3.jpg" width="150" style="margin:10px;">
+<img src="img1.jpg">
+<img src="img2.jpg">
+<img src="img3.jpg">
 
-
+</div>
 
 </body>
 </html>
