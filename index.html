@@ -16,24 +16,32 @@ text-align:center;
 
 /* Profile Image */
 .profile{
-margin-top:30px;
+margin-top:25px;
 width:180px;
 border-radius:50%;
+border:3px solid #444;
 }
 
 /* Title */
 h1{
-margin-top:15px;
+margin:10px 0 5px;
+letter-spacing:3px;
 }
 
-/* Search */
+/* Text */
+p{
+color:#aaa;
+margin-bottom:15px;
+}
+
+/* Search Bar */
 input{
-margin-top:15px;
 padding:10px;
 width:220px;
 border-radius:20px;
 border:none;
 outline:none;
+margin-bottom:20px;
 }
 
 /* Gallery */
@@ -46,7 +54,8 @@ padding:15px;
 .gallery img{
 width:100%;
 margin-bottom:10px;
-border-radius:10px;
+border-radius:12px;
+cursor:pointer;
 transition:0.3s;
 }
 
@@ -58,34 +67,80 @@ transform:scale(1.03);
 .gallery{column-count:4;}
 }
 
+/* Full Image Viewer */
+#viewer{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+justify-content:center;
+align-items:center;
+}
+
+#viewer img{
+max-width:95%;
+max-height:95%;
+border-radius:10px;
+}
 </style>
 
 </head>
 
 <body>
 
-<!-- Profile Image -->
+<!-- PROFILE -->
 <img class="profile" src="IMG_20260529_172035022_HDR_PORTRAIT.jpg">
-
-<!-- Name -->
 <h1>HYDER</h1>
-
-<!-- Text -->
 <p>Welcome to my personal website 🚀</p>
 
-<!-- Search -->
-<input type="text" placeholder="Search...">
+<!-- SEARCH -->
+<input type="text" id="search" placeholder="Search images...">
 
-<br><br>
+<!-- GALLERY -->
+<div class="gallery" id="gallery">
 
-<!-- Gallery -->
-<div class="gallery">
+<img src="img1.jpg" onclick="openImg(this.src)">
+<img src="img2.jpg" onclick="openImg(this.src)">
+<img src="img3.jpg" onclick="openImg(this.src)">
 
-<img src="img1.jpg">
-<img src="img2.jpg">
-<img src="img3.jpg">
+<!-- Snapchat image added -->
+<img src="Snapchat-1800708327.jpg" onclick="openImg(this.src)">
 
 </div>
+
+<!-- IMAGE VIEWER -->
+<div id="viewer" onclick="this.style.display='none'">
+  <img id="viewerImg">
+</div>
+
+<!-- SCRIPT -->
+<script>
+
+// Open image fullscreen
+function openImg(src){
+  document.getElementById("viewer").style.display="flex";
+  document.getElementById("viewerImg").src=src;
+}
+
+// Search images
+document.getElementById("search").addEventListener("input", function(){
+  let value = this.value.toLowerCase();
+  let images = document.querySelectorAll(".gallery img");
+
+  images.forEach(img=>{
+    let src = img.src.toLowerCase();
+    if(src.includes(value)){
+      img.style.display="block";
+    }else{
+      img.style.display="none";
+    }
+  });
+});
+
+</script>
 
 </body>
 </html>
