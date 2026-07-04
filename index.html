@@ -14,7 +14,7 @@ color:white;
 text-align:center;
 }
 
-/* Profile Image */
+/* Profile */
 .profile{
 margin-top:25px;
 width:180px;
@@ -22,26 +22,35 @@ border-radius:50%;
 border:3px solid #444;
 }
 
-/* Title */
 h1{
 margin:10px 0 5px;
 letter-spacing:3px;
 }
 
-/* Text */
 p{
 color:#aaa;
 margin-bottom:15px;
 }
 
-/* Search Bar */
+/* Search */
 input{
 padding:10px;
 width:220px;
 border-radius:20px;
 border:none;
 outline:none;
-margin-bottom:20px;
+margin:5px;
+}
+
+/* Button */
+button{
+padding:10px 15px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+background:#444;
+color:white;
+margin:5px;
 }
 
 /* Gallery */
@@ -67,7 +76,7 @@ transform:scale(1.03);
 .gallery{column-count:4;}
 }
 
-/* Full Image Viewer */
+/* Viewer */
 #viewer{
 display:none;
 position:fixed;
@@ -96,6 +105,12 @@ border-radius:10px;
 <h1>HYDER</h1>
 <p>Welcome to my personal website 🚀</p>
 
+<!-- UPLOAD SECTION -->
+<input type="file" accept="image/*" id="uploader">
+<button onclick="addImage()">Add Image</button>
+
+<br>
+
 <!-- SEARCH -->
 <input type="text" id="search" placeholder="Search images...">
 
@@ -105,13 +120,11 @@ border-radius:10px;
 <img src="img1.jpg" onclick="openImg(this.src)">
 <img src="img2.jpg" onclick="openImg(this.src)">
 <img src="img3.jpg" onclick="openImg(this.src)">
-
-<!-- Snapchat image added -->
 <img src="Snapchat-1800708327.jpg" onclick="openImg(this.src)">
 
 </div>
 
-<!-- IMAGE VIEWER -->
+<!-- VIEWER -->
 <div id="viewer" onclick="this.style.display='none'">
   <img id="viewerImg">
 </div>
@@ -119,13 +132,38 @@ border-radius:10px;
 <!-- SCRIPT -->
 <script>
 
-// Open image fullscreen
+// Open image full screen
 function openImg(src){
   document.getElementById("viewer").style.display="flex";
   document.getElementById("viewerImg").src=src;
 }
 
-// Search images
+// Upload image and add to gallery
+function addImage(){
+  let fileInput = document.getElementById("uploader");
+  let file = fileInput.files[0];
+
+  if(!file){
+    alert("Please select an image first");
+    return;
+  }
+
+  let reader = new FileReader();
+
+  reader.onload = function(e){
+    let img = document.createElement("img");
+    img.src = e.target.result;
+    img.onclick = function(){
+      openImg(this.src);
+    };
+
+    document.getElementById("gallery").appendChild(img);
+  };
+
+  reader.readAsDataURL(file);
+}
+
+// Search filter
 document.getElementById("search").addEventListener("input", function(){
   let value = this.value.toLowerCase();
   let images = document.querySelectorAll(".gallery img");
